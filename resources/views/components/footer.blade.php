@@ -1,10 +1,8 @@
-
-
-<footer class="rounded-t-lg shadow absolute w-1/2 right-1/4 bottom-0 bg-[#C3C3C3]">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-[#7F7F7F] sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+<footer class="rounded-t-lg shadow absolute w-full md:w-1/2  md:right-1/4 bottom-0 bg-[#C3C3C3]">
+    <div class="w-full mx-auto p-2 md:p-4 flex flex-col md:flex-row items-center justify-between">
+      <span class="text-sm text-[#7F7F7F] text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
     </span>
-        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-[#7F7F7F] sm:mt-0">
+        <ul class="flex gap-2 flex-wrap items-center mt-3 text-sm font-medium text-[#7F7F7F] sm:mt-0">
             <li>
                 <a href="#" class="hover:underline me-4 md:me-6">About</a>
             </li>
