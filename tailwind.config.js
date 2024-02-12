@@ -5,7 +5,11 @@ export default {
     ],
     theme: {
         extend: {
+            screens: {
+                'ssm': '320px',
+            }
         },
+
     },
     plugins: [],
 }

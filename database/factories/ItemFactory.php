@@ -17,10 +17,14 @@ class ItemFactory extends Factory
      */
     public function definition(): array
     {
+        $images_url = [
+            "https://picsum.photos/560/360",
+        ];
         return [
             'name' => fake()->colorName(),
             'estoque' => fake()->numberBetween(1, 100),
             'preco' => fake()->randomFloat(2, 1, 100),
+            'imagem_url' => fake()->randomElement($images_url),
             'descricao' => fake()->text(100),
             'created_at' => fake()->dateTimeThisYear(),
             'updated_at' => fake()->dateTimeThisYear(),

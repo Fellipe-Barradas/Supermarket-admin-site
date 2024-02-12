@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integerIncrements('id');
             $table->string('name');
             $table->integer('estoque');
+            $table->string('imagem_url');
             $table->decimal('preco', 8, 2);
             $table->text('descricao');
             $table->timestamps();

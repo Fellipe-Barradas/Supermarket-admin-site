@@ -1,5 +1,5 @@
 <x-layout title="Inventário">
-    <main class="max-w-[1200px] p-2 mt-3">
+    <main class="max-w-[1200px] p-2 mt-3 mx-auto">
         <div class="flex max-w-[1200px] justify-between">
             <form class="flex items-center">
                 <label for="simple-search" class="sr-only">Search</label>
@@ -33,18 +33,22 @@
                 Adicionar
             </a>
         </div>
-        <h1 class="text-2xl">Inventário</h1>
+        <h1 class="text-3xl mt-4">Inventário</h1>
         <p>Lista de produtos</p>
 
         @unless($items->isEmpty())
-            <div class="mt-3">
-                <ul>
-                    @foreach($items as $item)
-                        <li>
-                            <a href="{{ route('items.show', $item) }}">{{ $item->name }}</a>
-                        </li>
-                    @endforeach
-                </ul>
+            <div class="mt-10 w-full grid grid-cols-1 ssm:grid-cols-2 lg:grid-cols-3 gap-5">
+                @foreach($items as $item)
+                    <a href="{{ route('items.show', $item) }}">
+                        <x-itemCard
+                            :nome="$item->name"
+                            :descricao="$item->descricao"
+                            :preco="$item->preco"
+                            :estoque="$item->estoque"
+                            :imagem="$item->imagem_url"
+                        />
+                    </a>
+                @endforeach
             </div>
         @else
             <p>Nenhum produto encontrado</p>

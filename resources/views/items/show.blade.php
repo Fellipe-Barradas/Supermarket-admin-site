@@ -4,9 +4,9 @@
         <p>Detalhes do produto</p>
         <div class="mt-3">
             <h2>{{ $item->name }}</h2>
-            <p>{{ $item->description }}</p>
-            <p>{{ $item->price }}</p>
-            <p>{{ $item->stock }}</p>
+            <p>{{ $item->descricao }}</p>
+            <p>{{ $item->preco }}</p>
+            <p>{{ $item->estoque }}</p>
         </div>
     </main>
 </x-layout>

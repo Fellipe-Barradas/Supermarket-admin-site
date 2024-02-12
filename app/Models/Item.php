@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Builder;
 
 class Item extends Model
 {
@@ -25,5 +26,19 @@ class Item extends Model
     public function purchase(): BelongsTo
     {
         return $this->belongsTo(Sale::class);
+    }
+
+    public function scopeFilter(Builder $query, array $filters)
+    {
+        $query
+            ->when($filters['name'] ?? false, function($query, $name){
+            $query->where('name', 'like', '%' . $name . '%');
+            })
+            ->when($filters['category'] ?? false, function($query, $category){
+            $query
+                ->whereHas('categories', function($query) use ($category){
+                $query->where('categories.id', $category);
+            });
+        });
     }
 }
