@@ -24,7 +24,7 @@
                     <a href="/" class="<?= isActiveLink($current_page, "/") ?>" aria-current="page">Inicio</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "items") ?>">Inventário</a>
+                    <a href="items" class="<?= isActiveLink($current_page, "items") ?>">Inventário</a>
                 </li>
                 <li>
                     <a href="#" class="<?= isActiveLink($current_page, "sales") ?>">Vendas</a>
