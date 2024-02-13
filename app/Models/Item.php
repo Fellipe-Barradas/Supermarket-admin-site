@@ -32,7 +32,8 @@ class Item extends Model
     {
         $query
             ->when($filters['name'] ?? false, function($query, $name){
-            $query->where('name', 'like', '%' . $name . '%');
+            $query->where('name', 'like', '%' . $name . '%')
+                ->orWhere('descricao', 'like', '%' . $name . '%');
             })
             ->when($filters['category'] ?? false, function($query, $category){
             $query

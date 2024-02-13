@@ -2,14 +2,11 @@
     $current_page = Request::path();
 
     function isActiveLink($current_page, $page): string{
-        if($current_page == $page){
-            return 'active-link';
-        }
-        return 'link';
+        return $current_page === $page ? "text-[#00ADB5]" : "";
     }
 ?>
 
-<nav class="bg-[#222831] border-gray-200 text-white flex-none">
+<nav class="bg-[#222831] border-gray-200 text-white flex-none p-1">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="https://img.freepik.com/vetores-gratis/modelo-de-logotipo-de-design-plano-criativo_23-2149003613.jpg?w=740&t=st=1707684355~exp=1707684955~hmac=c16cea13b27edeaeb3c3c795866e502235880c55af9e47f9d1cc6fb2fc6da621" class="h-8" alt="Flowbite Logo" />
@@ -27,22 +24,22 @@
                     <a href="/" class="<?= isActiveLink($current_page, "/") ?>" aria-current="page">Inicio</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "/inventory") ?>">Inventário</a>
+                    <a href="#" class="<?= isActiveLink($current_page, "items") ?>">Inventário</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "/sales") ?>">Vendas</a>
+                    <a href="#" class="<?= isActiveLink($current_page, "sales") ?>">Vendas</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "/purchases") ?>">Compras</a>
+                    <a href="#" class="<?= isActiveLink($current_page, "purchases") ?>">Compras</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "/customers") ?>">Clientes</a>
+                    <a href="#" class="<?= isActiveLink($current_page, "customers") ?>">Clientes</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "/login") ?>">Login</a>
+                    <a href="#" class="<?= isActiveLink($current_page, "login") ?>">Login</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "/logout") ?>">Sair da sessão</a>
+                    <a href="#" class="<?= isActiveLink($current_page, "logout") ?>">Sair da sessão</a>
                 </li>
             </ul>
         </div>

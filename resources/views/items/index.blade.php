@@ -1,7 +1,7 @@
 <x-layout title="Inventário">
-    <main class="max-w-[1200px] p-2 mt-3 mx-auto">
+    <main class="max-w-screen-xl p-2 mt-3 mx-auto">
         <div class="flex max-w-[1200px] justify-between">
-            <form class="flex items-center">
+            <form class="flex items-center" action="/items" method="GET">
                 <label for="simple-search" class="sr-only">Search</label>
                 <div class="relative w-full">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -16,7 +16,13 @@
 								s0.26,0.581,0.581,0.581h4.065v1.162h1.161V5.935h6.388c0.32,0,0.58-0.26,0.58-0.581S16.128,4.774,15.808,4.774z"></path>
                         </svg>
                     </div>
-                    <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Search branch name..." required>
+                    <input type="text"
+                           name="name"
+                           id="simple-search"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                           focus:border-blue-500 block w-full ps-10 p-2.5"
+                           placeholder="Procure um item..."
+                           required>
                 </div>
                 <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-[#00ADB5] rounded-lg  hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
