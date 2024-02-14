@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\SalesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,4 +18,5 @@ Route::post('/sign-out',AuthController::class . '@signOut')->name('auth.logout')
 Route::middleware("auth")->group(function(){
     Route::resource('customers', CustomerController::class);
     Route::resource("items", ItemsController::class);
+    Route::resource("sales", SalesController::class);
 });

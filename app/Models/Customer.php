@@ -41,7 +41,6 @@ class Customer extends Model
         'phone',
         'address'
     ];
-
     public function sale(): BelongsTo
     {
         return $this->belongsTo(Sale::class);
