@@ -23,6 +23,7 @@
                 <li>
                     <a href="/" class="<?= isActiveLink($current_page, "/") ?>  " aria-current="page">Inicio</a>
                 </li>
+                @auth
                 <li>
                     <a href="/items" class="<?= isActiveLink($current_page, "items") ?>">Inventário</a>
                 </li>
@@ -36,11 +37,18 @@
                     <a href="#" class="<?= isActiveLink($current_page, "customers") ?>">Clientes</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "login") ?>">Login</a>
+                    <form action="{{ route("auth.logout") }}" method="POST">
+                        @csrf
+                        <button type="submit" class="text-white hover:text-[#00ADB5]">Sair da sessão</button>
+                    </form>
                 </li>
+                @endauth
+                @guest
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "logout") ?>">Sair da sessão</a>
+                    <a href="{{ route("auth.login") }}" class="<?= isActiveLink($current_page, "login") ?>">Login</a>
                 </li>
+                @endguest
+
             </ul>
         </div>
     </div>
