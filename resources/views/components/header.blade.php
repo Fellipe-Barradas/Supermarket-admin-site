@@ -2,7 +2,7 @@
     $current_page = Request::path();
 
     function isActiveLink($current_page, $page): string{
-        return $current_page === $page ? "text-[#00ADB5]" : "";
+        return $current_page === $page ? "text-[#00ADB5]" : "hover:text-[#00ADB5]";
     }
 ?>
 
@@ -24,7 +24,7 @@
                     <a href="/" class="<?= isActiveLink($current_page, "/") ?>" aria-current="page">Inicio</a>
                 </li>
                 <li>
-                    <a href="items" class="<?= isActiveLink($current_page, "items") ?>">Inventário</a>
+                    <a href="/items" class="<?= isActiveLink($current_page, "items") ?>">Inventário</a>
                 </li>
                 <li>
                     <a href="#" class="<?= isActiveLink($current_page, "sales") ?>">Vendas</a>

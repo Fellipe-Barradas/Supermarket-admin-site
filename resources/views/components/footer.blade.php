@@ -1,4 +1,4 @@
-<footer class="rounded-t-lg shadow absolute w-full md:w-1/2  md:right-1/4 mt-4 bg-[#C3C3C3]">
+<footer class="rounded-t-lg shadow md:mx-auto md:right-1/4 w-full md:w-1/2   mt-4 bg-[#C3C3C3]">
     <div class="w-full mx-auto p-2 md:p-4 flex flex-col md:flex-row items-center justify-between">
       <span class="text-sm text-[#7F7F7F] text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
     </span>

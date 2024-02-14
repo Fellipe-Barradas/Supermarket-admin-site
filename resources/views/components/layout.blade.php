@@ -9,9 +9,12 @@
     @vite('resources/css/app.css')
     <title>{{ $title }}</title>
 </head>
-<body class="bg-[#EEEEEE]">
+<body class="bg-[#EEEEEE] flex flex-col min-h-screen">
     <x-header/>
+    <x-flash-message/>
+    <div class="flex-grow">
         {{ $slot }}
+    </div>
     <x-footer/>
 </body>
 </html>

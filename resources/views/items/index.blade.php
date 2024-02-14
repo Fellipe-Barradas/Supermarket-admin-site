@@ -34,6 +34,7 @@
             <a
                 type="button"
                 aria-label="button"
+                href="{{ route('items.create') }}"
                 class="text-white cursor-pointer bg-[#00ADB5] hover:bg-blue-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2.5 py-2 flex-shrink self-start focus:outline-none"
             >
                 Adicionar

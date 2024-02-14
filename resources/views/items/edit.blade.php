@@ -1,11 +1,12 @@
 <x-layout title="Item">
     <main class="max-w-lg mx-auto p-2 mt-8">
-
         <form
-            action="/items"
+            action="{{ route('items.update', $item) }}"
             method="POST"
+            enctype="multipart/form-data"
         >
             @csrf
+            @method('PUT')
             <h1 class="text-3xl">Adicionar item</h1>
             <div class="flex flex-col md:grid md:grid-cols-2 gap-3">
                 <div class="flex flex-col gap-3">
@@ -13,9 +14,8 @@
                     <input
                         type="text"
                         name="name"
-                    value="{{ old('name') }}"
-                    class="border border-gray-300 rounded-lg p-2.5"
-
+                        value="{{ $item->name }}"
+                        class="border border-gray-300 rounded-lg p-2.5"
                     >
                 </div>
                 <div class="flex flex-col gap-3">
@@ -23,15 +23,14 @@
                     <textarea
                         name="descricao"
                         class="border border-gray-300 rounded-lg p-2.5"
-
-                    >{{ old('descricao') }}</textarea>
+                    >{{ $item->descricao }}</textarea>
                 </div>
                 <div class="flex flex-col gap-3">
                     <label for="preco" class="text-lg @error('preco') text-red-500 @enderror">Preço</label>
                     <input
                         name="preco"
                         type="number"
-                        value="{{ old('preco') }}"
+                        value="{{ $item->preco }}"
                         class="border border-gray-300 rounded-lg p-2.5"
                         step="0.01"
                     >
@@ -41,7 +40,7 @@
                     <input
                         type="number"
                         name="estoque"
-                        value="{{ old('estoque') }}"
+                        value="{{ $item->estoque }}"
                         class="border border-gray-300 rounded-lg p-2.5"
 
                     >
@@ -51,7 +50,7 @@
                     <input
                         type="text"
                         name="imagem_url"
-                        value="{{ old('imagem_url') }}"
+                        value="{{ $item->imagem_url }}"
                         class="border border-gray-300 rounded-lg p-2.5"
                     >
                 </div>

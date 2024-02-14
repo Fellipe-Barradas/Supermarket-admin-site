@@ -15,8 +15,8 @@ return new class extends Migration
             $table->integerIncrements("id");
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('item_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 
