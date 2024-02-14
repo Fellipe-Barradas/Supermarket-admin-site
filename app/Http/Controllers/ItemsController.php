@@ -64,7 +64,6 @@ class ItemsController extends Controller
 
     public function update(Request $request, $item)
     {
-
         $item = Item::findOrFail($item);
         $formData = $request->validate([
             'name' => 'required|max:255',
@@ -83,11 +82,10 @@ class ItemsController extends Controller
             return redirect()
                 ->route('items.show', [$item])
                 ->with('success', 'Item atualizado com sucesso.');
-        }else{
-            return redirect()
-                ->route('items.edit', [$item])
-                ->with('error', 'Erro atualizando item. ');
         }
+        return redirect()
+            ->route('items.edit', [$item])
+            ->with('error', 'Erro atualizando item.');
     }
 
     public function destroy($item)
