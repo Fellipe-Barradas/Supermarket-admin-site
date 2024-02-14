@@ -17,8 +17,8 @@ return new class extends Migration
             $table->decimal('value', 10, 2);
             $table->unsignedInteger('customer_id');
             $table->unsignedInteger('item_id');
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->timestamps();
         });
     }
