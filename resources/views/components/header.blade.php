@@ -6,7 +6,7 @@
     }
 ?>
 
-<nav x-data="{ open: false }"  class="bg-[#222831] border-gray-200 text-white flex-none p-1">
+<nav x-data="{ open: true }"  class="bg-[#222831] border-gray-200 text-white flex-none p-1">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="https://img.freepik.com/vetores-gratis/modelo-de-logotipo-de-design-plano-criativo_23-2149003613.jpg?w=740&t=st=1707684355~exp=1707684955~hmac=c16cea13b27edeaeb3c3c795866e502235880c55af9e47f9d1cc6fb2fc6da621" class="h-8" alt="Flowbite Logo" />
@@ -21,7 +21,7 @@
         <div x-show="open" class="w-full md:block md:w-auto" id="navbar-default">
             <ul class="font-medium gap-2 0 md:gap-0 flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                 <li>
-                    <a href="/" class="<?= isActiveLink($current_page, "/") ?>" aria-current="page">Inicio</a>
+                    <a href="/" class="<?= isActiveLink($current_page, "/") ?>  " aria-current="page">Inicio</a>
                 </li>
                 <li>
                     <a href="/items" class="<?= isActiveLink($current_page, "items") ?>">Inventário</a>
