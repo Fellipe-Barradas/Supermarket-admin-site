@@ -32,7 +32,7 @@ class ItemsController extends Controller
     {
         $formData = $request->validate([
             'name' => 'required|max:255',
-            'imagem_url' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            'imagem_url' => 'required   ',
             'estoque' => 'required|numeric',
             'preco' => 'required|numeric',
             'descricao' => 'required'
