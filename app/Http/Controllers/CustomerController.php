@@ -3,19 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('customers.index');
+        $query = Customer::filter($request->only(['name']));
+
+        $customers = $query->get("customers.*");
+        return view('customers.index', ['customers' => $customers]);
     }
 
     public function show(Customer $customer)
     {
-        $customer = Customer::findOrfail($customer);
-        return view('customers.show', compact('customer'));
+        $customer = Customer::query()->select("customers.*")->findOrFail($customer->id);
+        $sales = Sale::query()->join("items", "item_id", "=", "items.id")
+            ->select("sales.*", "items.name as item_name", "items.preco as item_price")
+            ->where("customer_id", $customer->id)
+            ->get();
+        $purchases = Sale::query()->join("items", "item_id", "=", "items.id")
+            ->select("sales.*", "items.name as item_name", "items.preco as item_price")
+            ->where("customer_id", $customer->id)
+            ->get();
+        return view('customers.show', ['customer' => $customer, 'sales' => $sales, 'purchases' => $purchases]);
     }
 
     public function create()

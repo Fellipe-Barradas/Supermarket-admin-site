@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -29,7 +30,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Customer whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Customer wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Customer whereUpdatedAt($value)
- * @mixin \Eloquent
+ *
  */
 class Customer extends Model
 {
@@ -41,6 +42,15 @@ class Customer extends Model
         'phone',
         'address'
     ];
+
+    public static function scopeFilter(Builder $query, array $filters)
+    {
+        $query->when($filters['name'] ?? null, function (Builder $query, $name) {
+            $query->where('name', 'like', '%' . $name . '%');
+        });
+
+    }
+
     public function sale(): BelongsTo
     {
         return $this->belongsTo(Sale::class);

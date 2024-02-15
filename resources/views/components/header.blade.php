@@ -28,13 +28,13 @@
                     <a href="/items" class="<?= isActiveLink($current_page, "items") ?>">Inventário</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "sales") ?>">Vendas</a>
+                    <a href="/sales" class="<?= isActiveLink($current_page, "sales") ?>">Vendas</a>
                 </li>
                 <li>
                     <a href="#" class="<?= isActiveLink($current_page, "purchases") ?>">Compras</a>
                 </li>
                 <li>
-                    <a href="#" class="<?= isActiveLink($current_page, "customers") ?>">Clientes</a>
+                    <a href="/customers" class="<?= isActiveLink($current_page, "customers") ?>">Clientes</a>
                 </li>
                 <li>
                     <form action="{{ route("auth.logout") }}" method="POST">

@@ -37,6 +37,13 @@ class Sale extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'quantity',
+        'value',
+        'customer_id',
+        'item_id'
+    ];
+
     public function Items(): HasMany
     {
         return $this->hasMany(Item::class);
