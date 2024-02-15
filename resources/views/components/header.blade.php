@@ -9,7 +9,7 @@
 <nav x-data="{ open: true }"  class="bg-[#222831] border-gray-200 text-white flex-none p-1">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="https://img.freepik.com/vetores-gratis/modelo-de-logotipo-de-design-plano-criativo_23-2149003613.jpg?w=740&t=st=1707684355~exp=1707684955~hmac=c16cea13b27edeaeb3c3c795866e502235880c55af9e47f9d1cc6fb2fc6da621" class="h-8" alt="Flowbite Logo" />
+            <img src="./images/logo.png" class="h-8" alt="Flowbite Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap">Supermarket</span>
         </a>
         <button type="button" @click="open = !open" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none hover:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
