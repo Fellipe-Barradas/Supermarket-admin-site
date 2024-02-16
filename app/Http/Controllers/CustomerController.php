@@ -50,29 +50,31 @@ class CustomerController extends Controller
 
     public function edit(Customer $customer)
     {
-        $customer = Customer::findOrFail($customer);
-        return view("customers.view", $customer);
+        $customer = Customer::query()->select("customers.*")->findOrFail($customer->id);
+        return view("customers.edit", ["customer" => $customer]);
     }
 
-    public function update(Request $request, Customer $oldValue)
+    public function update(Request $request, Customer $customer)
     {
         $formFields = $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|digits:10',
+            'phone' => 'required',
             'address' => 'required|max:255',
         ]);
 
-        $oldValue->fill($formFields);
-        $oldValue->save();
+        $customer = Customer::query()->select("customers.*")->findOrFail($customer->id);
+        $customer->name = $formFields["name"];
+        $customer->phone = $formFields["phone"];
+        $customer->address = $formFields["address"];
+        $customer->save();
 
-        return redirect("customers.show", $oldValue->id)->with("Cliente atualizado com sucesso");
+        return redirect()->route("customers.index")->with("Cliente atualizado com sucesso");
     }
 
     public function destroy(Customer $customer)
     {
-        $customer = Customer::findOrFail($customer);
+        $customer = Customer::query()->select("customers.*")->findOrFail($customer->id);
         $customer->delete();
-        return redirect("customers.index")->with("Cliente deletado com sucesso");
+        return redirect()->route("customers.index")->with("Cliente deletado com sucesso");
     }
 }

@@ -28,7 +28,11 @@
                 <td class="px-6 py-4">
                     <a href="{{ route("$action.show", $customer) }}" class="font-medium text-green-600 hover:underline">Ver</a>
                     <a href="{{ route("$action.edit", $customer) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
-                    <a href="{{ route("$action.destroy", $customer) }}" class="font-medium text-red-600 hover:underline">Deletar</a>
+                    <form action="{{ route("$action.destroy", $customer) }}" method="POST" class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="font-medium text-red-600 hover:underline">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
